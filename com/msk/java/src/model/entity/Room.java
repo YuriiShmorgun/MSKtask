@@ -11,7 +11,12 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Room {
 
+    private Integer length;
     private Integer width;
     private Integer height;
-    private Integer length;
+
+
+    public Integer getSquare(){
+        return length*width*2+width*height*2+height*length*2;
+    }
 }
