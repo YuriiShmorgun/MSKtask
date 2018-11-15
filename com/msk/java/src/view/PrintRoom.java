@@ -17,4 +17,7 @@ public class PrintRoom {
             );
         }
     }
+
+    private PrintRoom() {
+    }
 }

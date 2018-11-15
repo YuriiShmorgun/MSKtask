@@ -5,10 +5,6 @@ import model.entity.Room;
 import model.service.ParseByReg;
 import view.PrintRoom;
 
-
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Properties;
@@ -17,12 +13,12 @@ public class Controller {
 
     public static void main(String[] args) {
 
-        List<Room> roomList = new LinkedList<>();
-        //task1
 
         Properties confProperties = LoadProperty.getInstance("resource/conf.properties");
         Properties regexProperties = LoadProperty.getInstance("resource/regex.properties");
 
+        //task1
+        List<Room> roomList = new LinkedList<>();
         List<String> stringList = ParseByReg.parse(Reader.parseFile(confProperties.getProperty("first.task")),
                                           regexProperties.getProperty("reg.room"));
 
@@ -36,5 +32,9 @@ public class Controller {
         PrintRoom.printRoom(roomList);
 
         //task2
+        List<String> wordList = ParseByReg.parse(Reader.parseFile(confProperties.getProperty("second.task")),
+                                            regexProperties.getProperty("reg.word"));
+        System.out.println(wordList);
+
     }
 }

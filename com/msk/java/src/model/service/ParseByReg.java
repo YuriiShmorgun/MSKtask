@@ -16,4 +16,7 @@ public class ParseByReg {
         }
         return stringList;
     }
+
+    private ParseByReg() {
+    }
 }
