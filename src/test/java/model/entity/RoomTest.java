@@ -6,9 +6,6 @@ import static org.junit.Assert.*;
 
 public class RoomTest {
 
-    @Test
-    public void getSquare() {
-    }
 
     @Test
     public void builder() {
@@ -22,11 +19,19 @@ public class RoomTest {
     }
 
     @Test
-    public void calculateTest1 (){
+    public void calculateTest (){
         Room room = Room.builder().width(1)
                 .height(2)
                 .length(3)
                 .build();
-        assertEquals(0, room.getSquare());
+        assertEquals(3, room.getSquare());
+    }
+
+    @Test
+    public void nullTest (){
+        Room room = Room.builder().width(4)
+                .length(5)
+                .build();
+        assertEquals(4, room.getSquare());
     }
 }
