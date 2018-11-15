@@ -1,7 +1,8 @@
 package model.service;
 
 
-import javax.swing.text.html.parser.Entity;
+
+import java.util.Comparator;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -9,20 +10,20 @@ public class SortWordMap {
 
     public static Map sort (Map <String, Integer> map){
 
-        Map <String, Map.Entry> sortMap = new TreeMap<>();
+        Map <String, String> sortMap = new TreeMap<>(Comparator.naturalOrder() );
         String temp;
+        String temp2;
 
         for (Map.Entry<String , Integer> entry: map.entrySet()){
 
-            temp =((Integer.toString(entry.getValue())).concat(entry.getKey()));
-            sortMap.put(temp, entry);
+            temp =((Integer.toString(Integer.MAX_VALUE - entry.getValue())).concat(entry.getKey()));
+            temp2 = (entry.getKey() + " = " + (entry.getValue()));
+            sortMap.put(temp, temp2);
         }
 
+        System.out.println(sortMap.toString());
 
 
-        System.out.println(sortMap);
-
-
-        return null;
+        return sortMap;
     }
 }

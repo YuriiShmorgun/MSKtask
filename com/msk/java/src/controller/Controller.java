@@ -7,6 +7,7 @@ import model.service.CountWord;
 import model.service.SortWordMap;
 import model.service.ToLoverCase;
 import view.PrintRoom;
+import view.PrintWord;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -40,7 +41,7 @@ public class Controller {
         System.out.println(wordList);
         System.out.println(CountWord.count(ToLoverCase.lover(wordList)));
 
-        SortWordMap.sort((CountWord.count(ToLoverCase.lover(wordList))));
+        PrintWord.printWordMap(SortWordMap.sort((CountWord.count(ToLoverCase.lover(wordList)))));
 
     }
 }
