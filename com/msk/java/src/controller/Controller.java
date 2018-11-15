@@ -3,6 +3,9 @@ package controller;
 import model.entity.Room;
 
 import model.service.ParseByReg;
+import model.service.CountWord;
+import model.service.SortWordMap;
+import model.service.ToLoverCase;
 import view.PrintRoom;
 
 import java.util.LinkedList;
@@ -35,6 +38,9 @@ public class Controller {
         List<String> wordList = ParseByReg.parse(Reader.parseFile(confProperties.getProperty("second.task")),
                                             regexProperties.getProperty("reg.word"));
         System.out.println(wordList);
+        System.out.println(CountWord.count(ToLoverCase.lover(wordList)));
+
+        SortWordMap.sort((CountWord.count(ToLoverCase.lover(wordList))));
 
     }
 }
