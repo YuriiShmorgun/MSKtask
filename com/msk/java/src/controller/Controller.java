@@ -38,8 +38,7 @@ public class Controller {
         //task2
         List<String> wordList = ParseByReg.parse(Reader.parseFile(confProperties.getProperty("second.task")),
                                             regexProperties.getProperty("reg.word"));
-        System.out.println(wordList);
-        System.out.println(CountWord.count(ToLoverCase.lover(wordList)));
+
 
         PrintWord.printWordMap(SortWordMap.sort((CountWord.count(ToLoverCase.lover(wordList)))));
 

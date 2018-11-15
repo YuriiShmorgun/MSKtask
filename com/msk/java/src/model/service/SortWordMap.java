@@ -21,8 +21,6 @@ public class SortWordMap {
             sortMap.put(temp, temp2);
         }
 
-        System.out.println(sortMap.toString());
-
 
         return sortMap;
     }
