@@ -18,4 +18,7 @@ public class CountWord {
 
         return stringMap;
     }
+
+    private CountWord() {
+    }
 }

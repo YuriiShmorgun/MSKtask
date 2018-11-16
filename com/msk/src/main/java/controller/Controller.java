@@ -1,9 +1,9 @@
 package controller;
 
-import model.entity.Room;
 
-import model.service.ParseByReg;
+import model.entity.Room;
 import model.service.CountWord;
+import model.service.ParseByReg;
 import model.service.SortWordMap;
 import model.service.ToLoverCase;
 import view.PrintRoom;
@@ -18,8 +18,11 @@ public class Controller {
     public static void main(String[] args) {
 
 
-        Properties confProperties = LoadProperty.getInstance("resource/conf.properties");
-        Properties regexProperties = LoadProperty.getInstance("resource/regex.properties");
+
+
+
+        Properties confProperties = LoadProperty.getInstance("com/msk/src/main/resources/conf.properties");
+        Properties regexProperties = LoadProperty.getInstance("com/msk/src/main/resources/regex.properties");
 
         //task1
         List<Room> roomList = new LinkedList<>();

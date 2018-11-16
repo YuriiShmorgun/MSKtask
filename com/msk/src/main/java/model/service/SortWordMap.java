@@ -1,7 +1,5 @@
 package model.service;
 
-
-
 import java.util.Comparator;
 import java.util.Map;
 import java.util.TreeMap;
@@ -19,5 +17,8 @@ public class SortWordMap {
             sortMap.put(temp, temp2);
         }
         return sortMap;
+    }
+
+    private SortWordMap() {
     }
 }

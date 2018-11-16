@@ -1,5 +1,6 @@
 package model.entity;
 
+import model.entity.Room;
 import org.junit.*;
 
 import static org.junit.Assert.*;
