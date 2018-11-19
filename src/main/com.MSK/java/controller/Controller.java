@@ -23,10 +23,10 @@ public class Controller {
 
 
 
-        Properties confProperties = LoadProperty.getInstance("com/msk/src/main/resources/conf.properties");
-        Properties regexProperties = LoadProperty.getInstance("com/msk/src/main/resources/regex.properties");
+        Properties confProperties = LoadProperty.getInstance("src/main/com.MSK/resources/conf.properties");
+        Properties regexProperties = LoadProperty.getInstance("src/main/com.MSK/resources/regex.properties");
 
-        //task1
+        //task1    src/main/com.MSK/resources/conf.properties
 
         ParserByReg parserByReg = ParserByReg.newInstance();
         List<Room> roomList = new LinkedList<>();
@@ -52,13 +52,6 @@ public class Controller {
                 .count(MakerToLoverCase.newInstance()
                         .lover(wordList))));
 
-
-
-
-
-
-        //Map map = CounterWord::new;
-   //     PrintWord.printWordMap(SorterWordMap.sort(((new CounterWord()).count(MakerToLoverCase.lover(wordList)))));
 
     }
 }
