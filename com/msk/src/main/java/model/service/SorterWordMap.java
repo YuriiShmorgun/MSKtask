@@ -4,7 +4,7 @@ import java.util.Comparator;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class SortWordMap {
+public class SorterWordMap {
 
     public static Map sort (Map <String, Integer> map){
 
@@ -19,6 +19,10 @@ public class SortWordMap {
         return sortMap;
     }
 
-    private SortWordMap() {
+    protected SorterWordMap() {
+    }
+
+    public static SorterWordMap newInstance(){
+        return new SorterWordMap();
     }
 }

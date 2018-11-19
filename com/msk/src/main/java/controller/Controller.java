@@ -2,10 +2,10 @@ package controller;
 
 
 import model.entity.Room;
-import model.service.CountWord;
-import model.service.ParseByReg;
-import model.service.SortWordMap;
-import model.service.ToLoverCase;
+import model.service.CounterWord;
+import model.service.ParserByReg;
+import model.service.SorterWordMap;
+import model.service.MakerToLoverCase;
 import view.PrintRoom;
 import view.PrintWord;
 
@@ -14,6 +14,8 @@ import java.util.List;
 import java.util.Properties;
 
 public class Controller {
+
+
 
     public static void main(String[] args) {
 
@@ -25,25 +27,38 @@ public class Controller {
         Properties regexProperties = LoadProperty.getInstance("com/msk/src/main/resources/regex.properties");
 
         //task1
+
+        ParserByReg parserByReg = ParserByReg.newInstance();
         List<Room> roomList = new LinkedList<>();
-        List<String> stringList = ParseByReg.parse(Reader.parseFile(confProperties.getProperty("first.task")),
+        List<String> stringList = parserByReg.parse(Reader.parseFile(confProperties.getProperty("first.task")),
                                           regexProperties.getProperty("reg.room"));
 
-        for (int i = 0; i<stringList.size(); i++){
-           List<String> tempList= ParseByReg.parse(stringList.get(i), regexProperties.getProperty("reg.argument"));
-           roomList.add(Room.builder().length(Integer.parseInt(tempList.get(0)))
-                   .width(Integer.parseInt(tempList.get(1)))
-                   .height(Integer.parseInt(tempList.get(2)))
-                   .build());
+        for (String aStringList : stringList) {
+            List<String> tempList = parserByReg.parse(aStringList, regexProperties.getProperty("reg.argument"));
+            roomList.add(Room.builder().length(Integer.parseInt(tempList.get(0)))
+                    .width(Integer.parseInt(tempList.get(1)))
+                    .height(Integer.parseInt(tempList.get(2)))
+                    .build());
         }
         PrintRoom.printRoom(roomList);
 
         //task2
-        List<String> wordList = ParseByReg.parse(Reader.parseFile(confProperties.getProperty("second.task")),
+        List<String> wordList = ParserByReg.newInstance().parse(Reader.parseFile(confProperties.getProperty("second.task")),
                                             regexProperties.getProperty("reg.word"));
 
 
-        PrintWord.printWordMap(SortWordMap.sort((CountWord.count(ToLoverCase.lover(wordList)))));
+
+        PrintWord.printWordMap(SorterWordMap.sort(CounterWord.newInstance()
+                .count(MakerToLoverCase.newInstance()
+                        .lover(wordList))));
+
+
+
+
+
+
+        //Map map = CounterWord::new;
+   //     PrintWord.printWordMap(SorterWordMap.sort(((new CounterWord()).count(MakerToLoverCase.lover(wordList)))));
 
     }
 }

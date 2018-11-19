@@ -5,9 +5,9 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class ParseByReg {
+public class ParserByReg {
 
-    public static List<String> parse (String data, String regex){
+    public List<String> parse (String data, String regex){
         List <String> stringList = new LinkedList<>();
         Matcher matcher;
         matcher = Pattern.compile(regex).matcher(data);
@@ -17,6 +17,12 @@ public class ParseByReg {
         return stringList;
     }
 
-    private ParseByReg() {
+    protected ParserByReg() {
     }
+
+    public static ParserByReg newInstance(){
+        return new ParserByReg();
+    }
+
+
 }
